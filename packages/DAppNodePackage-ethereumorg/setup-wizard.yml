@@ -1,0 +1,18 @@
+version: "2"
+fields:
+  - id: ethereumorgrepo
+    target:
+      type: environment
+      name: ETHEREUM_ORG_REPO
+      service: ethereumorg
+    title: ethereum.org repo
+    description: >-
+      Repository that contains the ethereum.org source code
+  - id: ethereumorgpath
+    target:
+      type: environment
+      name: ETHEREUM_ORG_PATH
+      service: ethereumorg
+    title: ethereum.org code path
+    description: >-
+      Folder path that contains the ethereum.org source code (. if root)

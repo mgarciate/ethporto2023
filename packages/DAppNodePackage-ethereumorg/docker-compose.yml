@@ -1,0 +1,15 @@
+version: "3.5"
+services:
+  ethereumorg:
+    build: .
+    environment:
+      - "ETHEREUM_ORG_REPO=https://github.com/mgarciate/ethporto2023"
+      - ETHEREUM_ORG_PATH=ethereum-org-website
+    image: "ethereumorg.ethereumorg.public.dappnode.eth:0.1.0"
+    restart: unless-stopped
+    volumes:
+      - "data:/usr/src/app"
+    security_opt:
+      - "seccomp:unconfined"
+volumes:
+  data: {}
