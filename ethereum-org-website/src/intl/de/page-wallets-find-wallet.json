@@ -1,0 +1,16 @@
+{
+  "page-find-wallet-clear": "Filter aufheben",
+  "page-find-wallet-desc-2": "Wählen Sie Ihre Wallet also basierend auf den Funktionen, die Ihnen gefallen.",
+  "page-find-wallet-description": "Wallets haben viele optionale Funktionen, die Ihnen möglicherweise gefallen.",
+  "page-find-wallet-last-updated": "Zuletzt aktualisiert",
+  "page-find-wallet-meta-description": "Suchen und vergleichen Sie Ethereum-Wallets basierend auf den gewünschten Funktionen.",
+  "page-find-wallet-meta-title": "Finden Sie eine Ethereum-Wallet",
+  "page-find-wallet-multisig": "Multi-Signature-Wallets",
+  "page-find-wallet-multisig-desc": "Für zusätzliche Sicherheit benötigen Multi-Signatur-Wallets mehr als ein Konto, um bestimmte Transaktionen zu autorisieren.",
+  "page-find-wallet-showing": "Zeigen",
+  "page-find-wallet-swaps": "Dezentraler Token-Tausch",
+  "page-find-wallet-swaps-desc": "Handeln Sie zwischen ETH und anderen Token direkt von Ihrer Wallet.",
+  "page-find-wallet-title": "Finden Sie eine Wallet",
+  "page-find-wallet-try-removing": "Versuchen Sie ein oder zwei Funktionen zu entfernen",
+  "page-stake-eth": "Stake ETH"
+}

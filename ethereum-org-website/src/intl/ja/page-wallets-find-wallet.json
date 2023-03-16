@@ -1,0 +1,16 @@
+{
+  "page-find-wallet-clear": "フィルタをクリア",
+  "page-find-wallet-desc-2": "必要な機能に基づいてウォレットを選びましょう。",
+  "page-find-wallet-description": "ウォレットには多くのオプション機能があります。",
+  "page-find-wallet-last-updated": "最終更新日",
+  "page-find-wallet-meta-description": "あなたの欲しい機能に基づいてイーサリアムウォレットを探して比較しましょう。",
+  "page-find-wallet-meta-title": "イーサリアムウォレットを探しましょう",
+  "page-find-wallet-multisig": "複数署名アカウント",
+  "page-find-wallet-multisig-desc": "セキュリティを強化するために、複数署名ウォレットは特定のトランザクションを許可するには複数のアカウントを必要とします。",
+  "page-find-wallet-showing": "表示 ",
+  "page-find-wallet-swaps": "分散型トークンスワップ",
+  "page-find-wallet-swaps-desc": "ETHと他のトークンをあなたのウォレットから直接取引します。",
+  "page-find-wallet-title": "ウォレットを探す",
+  "page-find-wallet-try-removing": "機能を１つまたは２つ削除してみてください",
+  "page-stake-eth": "ETHのステーキング"
+}

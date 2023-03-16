@@ -1,0 +1,16 @@
+{
+  "page-find-wallet-clear": "Очистить фильтры",
+  "page-find-wallet-desc-2": "Выберите ваш кошелек, основываясь на функциях, которые вам нужны.",
+  "page-find-wallet-description": "Кошельки имеют множество дополнительных функций, которые могут вам понравиться.",
+  "page-find-wallet-last-updated": "Последнее обновление",
+  "page-find-wallet-meta-description": "Найдите и сравните кошельки Ethereum на основе функций, которые вам нужны.",
+  "page-find-wallet-meta-title": "Найти кошелек Ethereum",
+  "page-find-wallet-multisig": "Счета с несколькими подписями",
+  "page-find-wallet-multisig-desc": "Для дополнительной безопасности кошельки с несколькими подписями требуют более одного счета для авторизации определенных транзакций.",
+  "page-find-wallet-showing": "Показаны ",
+  "page-find-wallet-swaps": "Обмен децентрализованными токенами",
+  "page-find-wallet-swaps-desc": "Обменивайте ETH на другие токены и наоборот прямо из своего кошелька.",
+  "page-find-wallet-title": "Найти кошелек",
+  "page-find-wallet-try-removing": "Попробуйте удалить одну или две функции",
+  "page-stake-eth": "Вложить ETH"
+}
