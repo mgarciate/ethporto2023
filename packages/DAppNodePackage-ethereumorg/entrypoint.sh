@@ -23,19 +23,28 @@ cd webpage_repo/${ETHEREUM_ORG_PATH}
 npm i -g yarn
 yarn
 yarn build
+cd public
+# Loop all the dictories into the current folder that contains the file 404.html and delete them except "en"
+for dir in */; do
+    # if contains 404.html and it's not "en" delete it
+    if [ -f "$dir/404.html" ] && [ "$dir" != "en/" ]; then
+        echo "Removing $dir"
+        rm -rf $dir
+    fi
+done
 
-ipfs --api=/dns/ipfs.dappnode/tcp/5001 add -p -r ./public --quiet | tee ../listHashesBuild
+ipfs --api=/dns/ipfs.dappnode/tcp/5001 add -p -r . --quiet | tee ../listHashesBuild
 
 IPFS_HASH_BUILD=$(tail -1 ../listHashesBuild)
 IPFS_HASH_CODED=$(ipfs cid base32 $IPFS_HASH_BUILD)
-echo "http://${IPFS_HASH_CODED}.ipfs.ipfs.dappnode:8080/"
+echo "http://${IPFS_HASH_CODED}.ipfs.ipfs.dappnode:8080/en"
 
 curl    --connect-timeout 5 \
         --max-time 10 \
         --retry 5 \
         --retry-delay 0 \
         --retry-max-time 40 \
-        -X POST "http://my.dappnode/data-send?key=IPFS_URL&data=http://${IPFS_HASH_CODED}.ipfs.ipfs.dappnode:8080/" \
+        -X POST "http://my.dappnode/data-send?key=IPFS_URL&data=http://${IPFS_HASH_CODED}.ipfs.ipfs.dappnode:8080/en" \
         || { echo "[ERROR] failed to post the UI_IPFS_HASH IPFS to dappmanager"; }
 
 yarn serve
