@@ -87,8 +87,8 @@ native:
   ccHttpUrl: ${BEACON_NODE_API_3500}
   consensusClient: ${BEACON_NODE_CLIENT}
   ecHttpUrl: ${EXECUTION_LAYER_HTTP}
-  validatorRestartCommand: "pkill rocketpoold"
-  validatorStopCommand: "pkill rocketpoold"
+  validatorRestartCommand: /usr/local/bin/validator-restart.sh
+  validatorStopCommand: /usr/local/bin/validator-stop.sh
 nethermind:
   additionalFlags: ""
   cache: "8192"

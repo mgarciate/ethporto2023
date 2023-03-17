@@ -1,16 +1,10 @@
 #!/bin/bash
 
-NETWORK=${NETWORK}
-CONSENSUSCLIENT=${CONSENSUSCLIENT}
-
-case ${NETWORK} in
-"mainnet" | "prater") ;;
-
-*)
-    echo "Invalid NETWORK configured"
-    exit -1
-    ;;
-esac
+## exit if $NETWORK is not set
+if [ -z "${NETWORK}" ]; then
+    echo "NETWORK is not set"
+    exit 1
+fi
 
 # https://github.com/dappnode/DAppNodePackage-SSV-Shifu/blob/775dfbc2190b8c3bc7384a2e4c62d83892071001/build/entrypoint.sh#L3
 # Assign proper value to _DAPPNODE_GLOBAL_EXECUTION_CLIENT_PRATER.
@@ -84,4 +78,15 @@ envsubst < /app/rocketpool/user-settings_template.yml > /app/rocketpool/user-set
 mkdir -p /rocketpool/data/rewards-trees/
 
 # Run Rocketpool service
+/usr/local/bin/rocketpoold --settings /app/rocketpool/user-settings.yml api wallet set-password "mypassword12"
 exec /usr/local/bin/rocketpoold --settings /app/rocketpool/user-settings.yml node
+
+# Loop to wait until the Rocketpool service is up and running
+# while true; do
+#     if [[ $(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/version) == "200" ]]; then
+#         echo "Rocketpool service is up and running"
+#         break
+#     fi
+#     echo "Waiting for Rocketpool service to be up and running"
+#     sleep 5
+# done
