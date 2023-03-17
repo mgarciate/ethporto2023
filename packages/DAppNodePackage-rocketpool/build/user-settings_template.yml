@@ -1,0 +1,152 @@
+addons-gww:
+  additionalFlags: ""
+  containerTag: rocketpool/graffiti-wall-addon:v0.1.0
+  enabled: "false"
+  inputUrl: https://cdn-rocketpool.s3.us-west-2.amazonaws.com/graffiti.json
+  updateInputTime: "600"
+  updatePixelTime: "60"
+  updateWallTime: "600"
+besu:
+  additionalFlags: ""
+  containerTag: hyperledger/besu:22.4.1-openjdk-latest
+  jvmHeapSize: "0"
+  maxBackLayers: "512"
+  maxPeers: "25"
+bitflyNodeMetrics:
+  bitflyEndpoint: https://beaconcha.in/api/v1/client/metrics
+  bitflyMachineName: Smartnode
+  bitflySecret: ""
+consensusCommon:
+  apiPort: "5052"
+  checkpointSyncUrl: ""
+  doppelgangerDetection: "true"
+  graffiti: "from_DAppNode"
+  openApiPort: "false"
+  p2pPort: "9001"
+executionCommon:
+  enginePort: "8551"
+  ethstatsLabel: ""
+  ethstatsLogin: ""
+  httpPort: "8545"
+  openRpcPorts: "false"
+  p2pPort: "30303"
+  wsPort: "8546"
+exporter:
+  additionalFlags: ""
+  containerTag: prom/node-exporter:v1.3.1
+  enableRootFs: "false"
+externalExecution:
+  httpUrl: ${EXECUTION_LAYER_HTTP}
+  wsUrl: ${EXECUTION_LAYER_WS}
+externalLighthouse:
+  additionalVcFlags: ""
+  containerTag: sigp/lighthouse:v2.1.5
+  doppelgangerDetection: "true"
+  graffiti: "from_DAppNode"
+  httpUrl: ${BEACON_NODE_API_3500}
+externalPrysm:
+  additionalVcFlags: ""
+  containerTag: prysmaticlabs/prysm-validator:HEAD-e26cde-debug
+  doppelgangerDetection: "true"
+  graffiti: "from_DAppNode"
+  httpUrl: ${BEACON_NODE_API_3500}
+  jsonRpcUrl: ${BEACON_NODE_API_4000}
+externalTeku:
+  additionalVcFlags: ""
+  containerTag: consensys/teku:22.3.2
+  graffiti: "from_DAppNode"
+  httpUrl: ${BEACON_NODE_API_3500}
+fallbackNormal:
+  ccHttpUrl: ""
+  ecHttpUrl: ""
+fallbackPrysm:
+  ccHttpUrl: ""
+  ecHttpUrl: ""
+  jsonRpcUrl: ""
+geth:
+  additionalFlags: ""
+  cache: "16384"
+  containerTag: ethereum/client-go:v1.10.17
+  maxPeers: "50"
+grafana:
+  containerTag: grafana/grafana:8.3.2
+  port: "3100"
+lighthouse:
+  additionalBnFlags: ""
+  additionalVcFlags: ""
+  containerTag: sigp/lighthouse:v2.1.5
+  maxPeers: "80"
+mevBoost:
+  additionalFlags: ""
+  containerTag: flashbots/mev-boost:v0.7.7
+  externalUrl: ""
+  mode: local
+  port: "18550"
+  relays: ""
+native:
+  ccHttpUrl: ${BEACON_NODE_API_3500}
+  consensusClient: ${BEACON_NODE_CLIENT}
+  ecHttpUrl: ${EXECUTION_LAYER_HTTP}
+  validatorRestartCommand: "pkill rocketpoold"
+  validatorStopCommand: "pkill rocketpoold"
+nethermind:
+  additionalFlags: ""
+  cache: "8192"
+  containerTag: nethermind/nethermind:1.13.0
+  maxPeers: "50"
+  pruneMemSize: "8192"
+nimbus:
+  additionalFlags: ""
+  containerTag: statusim/nimbus-eth2:multiarch-v22.3.0
+  maxPeers: "160"
+prometheus:
+  additionalFlags: ""
+  containerTag: prom/prometheus:v2.31.1
+  openPort: "false"
+  port: "9091"
+prysm:
+  additionalBnFlags: ""
+  additionalVcFlags: ""
+  bnContainerTag: prysmaticlabs/prysm-beacon-chain:HEAD-e26cde-debug
+  maxPeers: "45"
+  openRpcPort: "false"
+  rpcPort: "5053"
+  vcContainerTag: prysmaticlabs/prysm-validator:HEAD-e26cde-debug
+root:
+  bnMetricsPort: "9100"
+  consensusClient: nimbus
+  consensusClientMode: external
+  ecMetricsPort: "9105"
+  enableBitflyNodeMetrics: "false"
+  enableMetrics: "false"
+  enableMevBoost: "false"
+  executionClient: geth
+  executionClientMode: external
+  exporterMetricsPort: "9103"
+  externalConsensusClient: prysm
+  isNative: "true"
+  nodeMetricsPort: "9102"
+  reconnectDelay: 60s
+  rpDir: /app/rocketpool/
+  useFallbackClients: "false"
+  vcMetricsPort: "9101"
+  version: v1.6.2
+  watchtowerMetricsPort: "9104"
+smartnode:
+  archiveECUrl: ""
+  dataPath: /rocketpool/data
+  manualMaxFee: "0"
+  minipoolStakeGasThreshold: "150"
+  network: ${NETWORK}
+  priorityFee: "2"
+  projectName: rocketpool
+  rewardsTreeMode: download
+  rplClaimGasThreshold: "150"
+  ttd: ""
+  web3StorageApiToken: ""
+teku:
+  additionalBnFlags: ""
+  additionalVcFlags: ""
+  containerTag: consensys/teku:22.3.2
+  jvmHeapSize: "0"
+  maxPeers: "74"

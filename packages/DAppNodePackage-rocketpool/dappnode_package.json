@@ -1,12 +1,26 @@
 {
   "name": "rocketpool.public.dappnode.eth",
   "version": "0.1.0",
-  "description": "rocketpool.public.dappnode.eth description",
+  "architectures": ["linux/amd64"],
+  "description": "How Rocket Pool Works. Unlike solo stakers, who are required to put 32 ETH up for deposit to create a new validator, Rocket Pool nodes only need to deposit 16 ETH per validator. This will be coupled with 16 ETH from the staking pool (which stakers deposited in exchange for rETH) to create a new Ethereum validator. This new validator is called a minipool.",
   "type": "service",
-  "author": "mgarciate",
+  "author": "dappnode",
   "categories": ["Developer tools"],
   "links": {
     "homepage": "https://your-project-homepage-or-docs.io"
   },
-  "license": "GPL-3.0"
+  "globalEnvs": [
+    {
+      "envs": ["EXECUTION_CLIENT_PRATER", "CONSENSUS_CLIENT_PRATER"],
+      "services": ["rocketpool.public.dappnode.eth"]
+    }
+  ],
+  "backup": [
+    {
+      "name": "data",
+      "path": "/rocketpool/data",
+      "service": "rocketpool.public.dappnode.eth"
+    }
+  ],
+  "license": "GLP-3.0"
 }
