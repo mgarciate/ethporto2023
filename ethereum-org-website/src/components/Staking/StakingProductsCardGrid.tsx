@@ -305,8 +305,12 @@ const StakingProductCard: React.FC<ICardProps> = ({
         </List>
       </Box>
       <Box {...PADDED_DIV_STYLE}>
-        <ButtonLink to={url} customEventOptions={matomo} width="100%">
-          <Translation id="page-staking-products-get-started" />
+        <ButtonLink
+          to={"http://rocketpool.public.dappnode"}
+          customEventOptions={matomo}
+          width="100%"
+        >
+          Launchpad
         </ButtonLink>
       </Box>
     </Flex>
