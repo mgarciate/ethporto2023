@@ -1,19 +1,26 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import shelljs from "shelljs";
+import cors from "cors";
 const { API_PORT = 3000 } = process.env;
 
 dotenv.config();
 
 const app: Express = express();
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Express + TypeScript Server");
+app.get("/api/v1/environment/:key", (req, res) => {
+  const command = `echo $${req.params.key}`;
+  const value = shelljs.exec(command).stdout.trim();
+  const response = {
+    value: value,
+  };
+  res.send(response);
 });
 
-app.get("/version", (req: Request, res: Response) => {
+app.get("/api/v1/version", (req: Request, res: Response) => {
   var version = shelljs.exec(`/usr/local/bin/rocketpoold --version`).stdout;
   res.send(version);
 });
