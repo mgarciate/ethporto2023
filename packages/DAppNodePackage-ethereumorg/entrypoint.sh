@@ -47,4 +47,4 @@ curl    --connect-timeout 5 \
         -X POST "http://my.dappnode/data-send?key=IPFS_URL&data=http://${IPFS_HASH_CODED}.ipfs.ipfs.dappnode:8080/en" \
         || { echo "[ERROR] failed to post the UI_IPFS_HASH IPFS to dappmanager"; }
 
-yarn serve
+yarn start
