@@ -1,5 +1,6 @@
 import axios from "axios";
 import { WalletStatus } from "../types/WalletStatus";
+import { NodeStatus } from "../types/NodeStatus";
 
 export class AppService {
   public api = axios.create({
@@ -14,8 +15,8 @@ export class AppService {
     const response = await this.api.get("/api/v1/version");
     return response.data;
   }
-  public async getNetwork(): Promise<string> {
-    const response = await this.api.get(`/api/v1/environment/NETWORK`);
+  public async getEnvironment(key: string): Promise<string> {
+    const response = await this.api.get(`/api/v1/environment/${key}`);
     return response.data.value;
   }
   public async getWalletStatus(): Promise<WalletStatus> {
@@ -24,23 +25,22 @@ export class AppService {
     });
     return response.data;
   }
-  // public async getAccount(): Promise<any> {
-  //     const response = await axios.get('/api/account');
-  //     return response.data;
-  // }
-  // public async getCurrentBlock(): Promise<any> {
-  //     const response = await axios.get('/api/currentBlock');
-  //     return response.data.height;
-  // }
-
-  // public async stake(stakeAmount: number, chains: string) {
-  //     const amount = Math.floor(stakeAmount * 1000000);
-  //     const response = await axios.post(`/api/stake`, {amount, chains});
-  //     return response.data;
-  // }
-
-  // public async replaceChains(chains: string) {
-  //     const response = await axios.post(`/api/replaceChains`, {chains});
-  //     return response.data;
-  // }
+  public async getNodeStatus(): Promise<NodeStatus> {
+    const response = await this.api.post(`/api/v1/rocketpool-command`, {
+      cmd: "node status",
+    });
+    return response.data;
+  }
+  public async walletInit(): Promise<string> {
+    const response = await this.api.post(`/api/v1/rocketpool-command`, {
+      cmd: `wallet init`,
+    });
+    return response.data.mnemonic;
+  }
+  public async walletRecover(mnemonic: string): Promise<string> {
+    const response = await this.api.post(`/api/v1/rocketpool-command`, {
+      cmd: `wallet recover ${mnemonic}`,
+    });
+    return response.data.accountAddress;
+  }
 }

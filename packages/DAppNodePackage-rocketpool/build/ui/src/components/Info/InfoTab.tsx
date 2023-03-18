@@ -9,7 +9,7 @@ function InfoTab() {
 
   return (
     <div>
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <h2>Info</h2>
     </div>
   );
 }
